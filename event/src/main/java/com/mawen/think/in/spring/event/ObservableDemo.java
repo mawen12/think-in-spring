@@ -7,6 +7,9 @@ import java.util.Observer;
 
 /**
  * {@link Observable} 示例
+ * Java 原生的事件驱动是基于观察者模式。
+ * 使用起来必须继承Observable，使用不太简单
+ *
  * @see Observable
  */
 public class ObservableDemo {
