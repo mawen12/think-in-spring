@@ -1,4 +1,4 @@
-package com.mawen.think.in.spring.event;
+package com.mawen.think.in.spring.event.applicationlistener;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.support.GenericApplicationContext;

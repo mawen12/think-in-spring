@@ -1,4 +1,4 @@
-package com.mawen.think.in.spring.event;
+package com.mawen.think.in.spring.event.applicationlistener;
 
 import com.sun.corba.se.spi.ior.ObjectKey;
 import org.springframework.context.ApplicationEvent;

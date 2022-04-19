@@ -1,7 +1,6 @@
-package com.mawen.think.in.spring.event;
+package com.mawen.think.in.spring.event.applicationlistener.async;
 
 import org.springframework.context.ApplicationEvent;
-import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.event.ApplicationEventMulticaster;
 import org.springframework.context.event.ContextClosedEvent;

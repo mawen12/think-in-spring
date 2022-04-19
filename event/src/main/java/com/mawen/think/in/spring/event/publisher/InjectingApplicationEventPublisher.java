@@ -1,4 +1,4 @@
-package com.mawen.think.in.spring.event;
+package com.mawen.think.in.spring.event.publisher;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;

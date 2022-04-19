@@ -1,4 +1,4 @@
-package com.mawen.think.in.spring.event;
+package com.mawen.think.in.spring.event.javasource;
 
 import java.util.EventListener;
 import java.util.EventObject;
