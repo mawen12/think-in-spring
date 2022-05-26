@@ -23,6 +23,13 @@
         <spring.version>5.3.19</spring.version>
     </properties>
 
+    <modules>
+        <module>bean</module>
+        <module>event</module>
+        <module>validation</module>
+        <module>aop-overview</module>
+    </modules>
+
     <!-- Spring 依赖管理 -->
     <dependencyManagement>
         <dependencies>
