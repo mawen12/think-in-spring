@@ -4,6 +4,10 @@ import java.lang.reflect.Method;
 
 /**
  * 前置拦截器
+ * - @Before
+ * - <aop:before/>
+ * - BeforeAdvice
+ *
  *
  * @author <a href="1181963012mw@gmail.com">mawen12</a>
  * @since

@@ -4,6 +4,9 @@ import java.lang.reflect.Method;
 
 /**
  * （方法返回 ）后置拦截器
+ * - @AfterReturning
+ * - <aop:after-returning/>
+ * - AfterReturningAdvice
  *
  * @author <a href="1181963012mw@gmail.com">mawen12</a>
  * @since
