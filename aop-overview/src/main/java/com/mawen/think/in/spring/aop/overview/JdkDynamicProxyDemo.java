@@ -27,8 +27,20 @@ public class JdkDynamicProxyDemo {
                 return null;
             }
         });
+        // $Proxy0 类定义
+        // class $Proxy0 extends java.lang.reflect.Proxy implements EchoServie {
+        //      $Proxy0 (InvocationHandler handler) {
+        //          super(handler);
+        //      }
+        // }
+        System.out.println(proxy.getClass());
 
         EchoService echoService = (EchoService) proxy;
         echoService.echo("Hello World");
+
+        // 验证代理对象
+        Object proxy2 = Proxy.newProxyInstance(classLoader, new Class[]{Comparable.class}, (proxy1, method, args1) -> null);
+        // $Proxy1
+        System.out.println(proxy2.getClass());
     }
 }
