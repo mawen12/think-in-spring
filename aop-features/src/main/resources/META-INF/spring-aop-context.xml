@@ -12,4 +12,16 @@
     http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <aop:aspectj-autoproxy/>
+
+    <bean id="echoService" class="com.mawen.think.in.spring.aop.overview.DefaultEchoService"/>
+
+    <bean id="echoServiceProxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="targetName" value="echoService"/>
+        <property name="interceptorNames">
+            <value>echoServiceMethodInterceptor</value>
+        </property>
+    </bean>
+
+    <bean id="echoServiceMethodInterceptor"
+          class="com.mawen.think.in.spring.aop.features.interceptor.EchoServiceMethodInterceptor"/>
 </beans>
