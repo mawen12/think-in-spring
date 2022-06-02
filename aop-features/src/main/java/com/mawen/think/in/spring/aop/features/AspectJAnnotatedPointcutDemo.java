@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
- * Pointcut 示例
+ * 基于注解实现 Pointcut 示例
  *
  * @author <a href="1181963012mw@gmail.com">mawen12</a>
  * @since

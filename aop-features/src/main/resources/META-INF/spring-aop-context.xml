@@ -13,6 +13,15 @@
 
     <aop:aspectj-autoproxy/>
 
+    <bean id="aspectXmlConfig" class="com.mawen.think.in.spring.aop.features.aspect.AspectXmlConfig"/>
+
+    <aop:config>
+        <aop:aspect id="AspectXmlConfig" ref="aspectXmlConfig">
+            <aop:pointcut id="anyPublicMethod" expression="execution(public * *(..))"/>
+            <aop:before method="beforeAnyPublicMethod" pointcut-ref="anyPublicMethod"/>
+        </aop:aspect>
+    </aop:config>
+
     <bean id="echoService" class="com.mawen.think.in.spring.aop.overview.DefaultEchoService"/>
 
     <bean id="echoServiceProxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
@@ -24,4 +33,6 @@
 
     <bean id="echoServiceMethodInterceptor"
           class="com.mawen.think.in.spring.aop.features.interceptor.EchoServiceMethodInterceptor"/>
+
+
 </beans>
