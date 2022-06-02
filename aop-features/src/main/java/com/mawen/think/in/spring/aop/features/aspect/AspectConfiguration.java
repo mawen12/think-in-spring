@@ -1,5 +1,7 @@
 package com.mawen.think.in.spring.aop.features.aspect;
 
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -25,5 +27,11 @@ public class AspectConfiguration {
     @Before("anyPublicMethod()") // Join Point 拦截动作
     public void beforeAnyPublicMethod() {
         System.out.println("@Before any public method.");
+    }
+
+    @Around("anyPublicMethod()") // Join Point 拦截动作
+    public Object aroundAnyPublicMethod(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        System.out.println("@Around any public method.");
+        return proceedingJoinPoint.proceed();
     }
 }
