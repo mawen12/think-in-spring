@@ -22,7 +22,7 @@ public class AspectConfiguration2 implements Ordered {
         return 0;
     }
 
-    @Before("execution(public **(..))") // Join Point 拦截动作
+    @Before("execution(public * *(..))") // Join Point 拦截动作
     public void beforeAnyPublicMethod2() {
         System.out.println("@Before any public method.(2)");
     }
