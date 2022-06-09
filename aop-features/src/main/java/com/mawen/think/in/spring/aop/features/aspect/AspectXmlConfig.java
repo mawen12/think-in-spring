@@ -2,8 +2,6 @@ package com.mawen.think.in.spring.aop.features.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 
-import java.io.PrintStream;
-
 /**
  * Aspect XML 配置类
  *
