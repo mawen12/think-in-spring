@@ -6,6 +6,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+import java.util.Random;
+
 /**
  * 基于注解实现 Pointcut 示例
  *
@@ -28,6 +30,8 @@ public class AspectJAnnotatedPointcutDemo {
     }
 
     public void execute() {
+        if(true)
+            throw new RuntimeException("For purpose.");
         System.out.println("execute()...");
     }
 

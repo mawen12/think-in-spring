@@ -1,5 +1,7 @@
 package com.mawen.think.in.spring.aop.overview;
 
+import org.springframework.aop.MethodBeforeAdvice;
+
 import java.lang.reflect.Method;
 
 /**
@@ -11,6 +13,7 @@ import java.lang.reflect.Method;
  *
  * @author <a href="1181963012mw@gmail.com">mawen12</a>
  * @since
+ * @see MethodBeforeAdvice
  */
 public interface BeforeInterceptor {
 

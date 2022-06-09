@@ -1,11 +1,10 @@
 package com.mawen.think.in.spring.aop.features.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.core.annotation.Order;
+
+import java.util.Random;
 
 /**
  * Aspect 配置类
@@ -27,7 +26,7 @@ public class AspectConfiguration {
     }
 
     @Before("anyPublicMethod()") // Join Point 拦截动作
-    public void beforeAnyPublicMethod() {
+    public void beforeAnyPublicMethod() throws Throwable {
         System.out.println("@Before any public method.");
     }
 
@@ -36,4 +35,21 @@ public class AspectConfiguration {
         System.out.println("@Around any public method.");
         return proceedingJoinPoint.proceed();
     }
+
+    @After("anyPublicMethod()")
+    public void finalizeAnyPublicMethod() {
+        System.out.println("@After any public method.");
+    }
+
+    @AfterReturning("anyPublicMethod()")
+    public void afterAnyPublicMethod() {
+        System.out.println("@AfterReturning any public method.");
+    }
+
+    @AfterThrowing(value = "anyPublicMethod()", throwing = "ex")
+    public void afterThrowingAnyPublicMethod(RuntimeException ex) {
+        System.out.println("@AfterThrowing any public method." + ex);
+    }
+
+
 }
