@@ -10,8 +10,8 @@ public class DefaultEchoService implements EchoService {
 
     @Override
     public String echo(String message) {
-        if (1==1)
-            throw new RuntimeException("For purpose from xml configuration");
+//        if (1==1)
+//            throw new RuntimeException("For purpose from xml configuration");
         return "[ECHO] " + message;
     }
 }
