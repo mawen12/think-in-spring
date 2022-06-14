@@ -28,6 +28,7 @@
         <module>event</module>
         <module>validation</module>
         <module>aop-overview</module>
+        <module>aop-features</module>
     </modules>
 
     <!-- Spring 依赖管理 -->
