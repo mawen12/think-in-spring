@@ -29,6 +29,7 @@
         <module>validation</module>
         <module>aop-overview</module>
         <module>aop-features</module>
+        <module>aop-design</module>
     </modules>
 
     <!-- Spring 依赖管理 -->
