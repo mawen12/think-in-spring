@@ -35,10 +35,15 @@
         <property name="interceptorNames">
             <value>echoServiceMethodInterceptor</value>
         </property>
+        <property name="targetSource" ref="targetSource"/>
     </bean>
 
     <bean id="echoServiceMethodInterceptor"
           class="com.mawen.think.in.spring.aop.features.interceptor.EchoServiceMethodInterceptor"/>
+
+    <bean id="targetSource" class="org.springframework.aop.target.HotSwappableTargetSource">
+        <constructor-arg ref="echoService"/>
+    </bean>
 
 
 </beans>
