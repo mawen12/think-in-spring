@@ -1,6 +1,5 @@
 package com.mawen.think.in.spring.event;
 
-import com.sun.org.apache.xerces.internal.xs.StringList;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.ResolvableType;
