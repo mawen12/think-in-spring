@@ -30,6 +30,7 @@
         <module>aop-overview</module>
         <module>aop-features</module>
         <module>metadata</module>
+        <module>condition</module>
     </modules>
 
     <!-- Spring 依赖管理 -->
