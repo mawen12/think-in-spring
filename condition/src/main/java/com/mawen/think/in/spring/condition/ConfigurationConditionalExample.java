@@ -71,32 +71,4 @@ public class ConfigurationConditionalExample {
         ctx.close();
     }
 
-    private static void nonConfigurationClass() {
-
-    }
-
-    private static void nonConfigurationClassWithAsm() {
-
-    }
-
-    private static void methodConditional() {
-
-    }
-
-    private static void methodConditionalWithAsm() {
-
-    }
-
-    private static void importsNotCreated() {
-
-    }
-
-    private static void conditionOnOverriddenMethodHonored() {
-
-    }
-
-    private static void configWithAlternativeBeans() {
-
-    }
-
 }
