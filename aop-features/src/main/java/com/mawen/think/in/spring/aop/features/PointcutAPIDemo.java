@@ -16,16 +16,19 @@ import org.springframework.aop.support.DefaultPointcutAdvisor;
 public class PointcutAPIDemo {
 
     public static void main(String[] args) {
-        EchoServicePointcut pointcut = new EchoServicePointcut("echo", EchoService.class);
-        EchoServiceMethodInterceptor advice = new EchoServiceMethodInterceptor();
-        // 将 Pointcut 适配成 Advisor
-        DefaultPointcutAdvisor advisor = new DefaultPointcutAdvisor(pointcut, advice);
         // 定义需要被代理的对象
         DefaultEchoService defaultEchoService = new DefaultEchoService();
 
         ProxyFactory proxyFactory = new ProxyFactory(defaultEchoService);
+
+        EchoServicePointcut pointcut = new EchoServicePointcut("echo", EchoService.class);
+        EchoServiceMethodInterceptor advice = new EchoServiceMethodInterceptor();
+        // 将 Pointcut 适配成 Advisor
+        DefaultPointcutAdvisor advisor = new DefaultPointcutAdvisor(pointcut, advice);
+
         // 添加 Advisor
         proxyFactory.addAdvisor(advisor);
+
         // 获取代理对象
         EchoService echoService = (EchoService) proxyFactory.getProxy();
         System.out.println(echoService.echo("Hello World!"));

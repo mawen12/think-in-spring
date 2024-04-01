@@ -32,6 +32,8 @@
         <module>metadata</module>
         <module>condition</module>
         <module>bean</module>
+        <module>aop-samples</module>
+        <module>core-samples</module>
     </modules>
 
     <!-- Spring 依赖管理 -->

@@ -8,6 +8,6 @@ package com.mawen.think.in.spring.aop.overview;
  */
 public interface EchoService {
 
-
     String echo(String message) throws NullPointerException;
+
 }
