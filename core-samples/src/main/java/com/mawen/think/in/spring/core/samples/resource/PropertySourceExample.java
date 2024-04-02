@@ -1,22 +1,31 @@
 package com.mawen.think.in.spring.core.samples.resource;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.jar.JarFile;
+import java.util.Map;
+import java.util.Properties;
 
 import com.mawen.think.in.spring.core.samples.resource.custom.JarUrlResource;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.PropertySource;
-import org.springframework.core.io.FileUrlResource;
+import org.springframework.core.env.PropertiesPropertySource;
+import org.springframework.core.env.SimpleCommandLinePropertySource;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.core.io.support.ResourcePropertySource;
 import org.springframework.util.ResourceUtils;
 
 /**
  * Load Property from classpath:application.properties
+ *
+ * <p>
+ *     <ul>
+ *         <li>classpath</li>
+ *         <li>jar</li>
+ *         <li>commandLine</li>
+ *         <li>system properties</li>
+ *         <li>system env</li>
+ *     </ul>
  *
  * @author <a href="1181963012mw@gmail.com">mawen12</a>
  * @since 2024/4/1
@@ -35,6 +44,9 @@ public class PropertySourceExample {
 //		loadFromJar(args[0]);
 //		loadFromJar2(args[0]);
 		loadFromJarByCustomImpl(args[0]);
+		loadFromCommandLine(args);
+		loadFromSystemProperties();
+		loadFromSystemEnv();
 	}
 
 	public static void loadFromClasspath() throws IOException {
@@ -73,6 +85,8 @@ public class PropertySourceExample {
 		System.out.println(propertySource.getProperty("name"));
 	}
 
+	// --path=/opt/agent/agent-dept.jar
+	// extract /opt/agent/agent-dept.jar!/agent.properties
 	public static void loadFromJarByCustomImpl(String javaAgent) throws IOException {
 		System.out.println("Load from : " + javaAgent);
 
@@ -85,7 +99,33 @@ public class PropertySourceExample {
 		System.out.println(pathToUse);
 
 		UrlResource urlResource = new JarUrlResource(ResourceUtils.FILE_URL_PREFIX + pathToUse + ResourceUtils.JAR_URL_SEPARATOR + "agent.properties");
-		PropertySource propertySource = new ResourcePropertySource(urlResource);
+		PropertiesPropertySource propertySource = new ResourcePropertySource(urlResource);
 		System.out.println(propertySource.getProperty("name"));
+	}
+
+	// --k1=v1 --k2=v2
+	public static void loadFromCommandLine(String[] args) {
+		System.out.println("Load from CommandLine");
+
+		SimpleCommandLinePropertySource propertySource = new SimpleCommandLinePropertySource(args);
+		System.out.println(propertySource.getProperty("k1"));
+		System.out.println(propertySource.getProperty("k2"));
+	}
+
+	public static void loadFromSystemProperties() {
+		System.out.println("Load from System Properties");
+
+		SystemEnvironmentPropertySource propertySource = new SystemEnvironmentPropertySource("systemProps", (Map)System.getProperties());
+		System.out.println(propertySource.getProperty("file.encoding"));
+		System.out.println(propertySource.getProperty("java.version"));
+	}
+
+	public static void loadFromSystemEnv() {
+		System.out.println("Load from System Environment");
+
+		SystemEnvironmentPropertySource propertySource = new SystemEnvironmentPropertySource("systemEnv", (Map) System.getenv());
+		System.out.println(propertySource.getProperty("JAVA_HOME"));
+		System.out.println(propertySource.getProperty("java.home")); // SystemEnvironmentPropertySource can handle java.home to JAVA_HOME
+		System.out.println(propertySource.getProperty("MAVEN_HOME"));
 	}
 }
